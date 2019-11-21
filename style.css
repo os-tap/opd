@@ -1,0 +1,50 @@
+
+.page-content {
+  padding: 50px 15px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timing {
+  padding: 0 10px;
+}
+.timing button {
+  margin: 0;
+}
+.timing__title {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.big-btn {
+  flex: 1;
+  margin: 0 10px;
+  min-height: 50px;
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.primary {
+  background: green;
+}
+
+#color {
+  height: 50px;
+  width: 180px;
+}
+
+.color {
+  padding-left: 25px;
+  margin-top: -20px;
+}
+.mdl-layout__header-row {
+  padding-left: 25px;
+}
