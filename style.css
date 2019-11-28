@@ -1,3 +1,8 @@
+body {
+  background: #f0f0f0;
+  /*  font-family: 'Roboto', sans-serif;*/
+  color: #000;
+}
 
 .page-content {
   padding: 50px 15px 20px;
@@ -8,11 +13,13 @@
 .timing {
   padding: 0 10px;
 }
+
 .timing button {
   margin: 0;
 }
+
 .timing__title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: center;
   line-height: 2rem;
 }
@@ -21,6 +28,7 @@
   flex: 1;
   margin: 0 10px;
   min-height: 50px;
+  background: #;
 }
 
 
@@ -39,12 +47,56 @@
 #color {
   height: 50px;
   width: 180px;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+#refresh {
+  color: white !important;
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
 }
 
 .color {
   padding-left: 25px;
   margin-top: -20px;
 }
+
 .mdl-layout__header-row {
   padding-left: 25px;
+}
+
+button {
+  font-weight: 100;
+}
+
+.active {
+  background: #3f51b5 !important;
+  color: white !important;
+
+}
+.mdl-layout__header-row {
+    justify-content: space-between;
+}
+
+.error-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  opacity: .8;
+  z-index: 10;
+}
+
+
+body.error header {
+  background: rgb(244, 67, 54) !important;
+}
+body.error .error-overlay {
+  display: block;
 }
