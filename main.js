@@ -121,7 +121,7 @@ async function changeSpeed(increase = false) {
 
   document.addEventListener('DOMContentLoaded', ()=>{
 
-    Update();
+//    Update();
 
     colorInput = document.getElementById('color');
     speedValue = document.getElementById('speed');
