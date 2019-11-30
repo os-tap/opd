@@ -3,16 +3,18 @@
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
+  <meta name="description" content="arduino app">
+  <meta name="theme-color" content="#2196f3" />
   <title>Управление поворотником</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+  <link rel="stylesheet" href="material/material.min.css">
   <link rel="stylesheet" href="style.css">
 
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script defer src="material/material.min.js"></script>
 
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 
 </head>
 
@@ -32,7 +34,7 @@
 
         <div class="row">
 
-             <button id="left" class="active big-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+             <button id="left" class="big-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
         Левый
       </button>
         <button id="right" class="big-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
@@ -55,7 +57,7 @@
             -
           </button>
 
-          <h2 class="timing__title">Скорость мигания (<span id="speed">20</span>мс)</h2>
+          <h2 class="timing__title">Скорость мигания (<span id="speed"></span>мс)</h2>
 
           <button id="speed-plus" class="mdl-button mdl-js-button mdl-button--fab  mdl-js-ripple-effect">
             +
@@ -63,14 +65,12 @@
         </div>
         <div class="row color">
           <h2 class="timing__title">Цвет</h2>
-          <input id="color" type="color" value="#3f51b5">
+          <input id="color" type="color" value="#e0e0e0">
         </div>
       </div>
   <div class="error-overlay"></div>
+
     </main>
   </div>
-
-
-
 
 </body></html>
