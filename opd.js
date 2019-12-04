@@ -15,11 +15,12 @@ for (let key in defaultData) {
 
 
 const SpeedStep = 20;
-let SpeedValue;
+let SpeedValue, HeadRight;
 
 
 
 export function opd() {
+  HeadRight = document.querySelector('#head-right');
   SpeedValue = document.querySelector('#speed');
   SpeedValue.innerHTML = localStorage.speed;
 
@@ -32,15 +33,18 @@ export function opd() {
 
   document.getElementById('refresh').addEventListener('click', unload);
 
-  unload();
+//  unload();
 
 }
 
 const fetching = async(url) => {
   try {
+    HeadRight.classList.add('load');
     let response = await fetch(HOST + url, {cache: 'no-cache'});
+    HeadRight.classList.remove('load');
     return true;
   } catch(err) {
+    HeadRight.classList.remove('load');
     alert("can't reach " + url);
     return false;
   }
@@ -48,19 +52,14 @@ const fetching = async(url) => {
 
 const unload = async () => {
 
-  let params = '';
+  let params = '?';
   for (let key in defaultData) {
     params += key + '=' + localStorage[key] + '&';
   }
-  try {
-    let response = await fetch(HOST + 'unload.html?' + params, {cache: 'no-cache'});
-    if (response.ok) {
-      unsetError();
-    }
-  } catch(error) {
-    setError();
-  }
 
+  HeadRight.classList.add('load');
+  let response = await fetching('unload.html' + params);
+  response ? unsetError() : setError();
 
 }
 
@@ -101,6 +100,7 @@ const Update = async () => {
 
 const setError = () => {
   document.body.classList.add('error');
+//  alert("can't connect to arduino");
 }
 const unsetError = () => {
   document.body.classList.remove('error');
@@ -143,7 +143,8 @@ class Color {
       localStorage[key] = rgb[key];
       request += key + '=' + rgb[key] + '&';
     }
-    let response = await fetching('color.html?r=' + rgb.r + '&g=' + rgb.g + '&b=' + rgb.b);
+    let params = '?r=' + rgb.r + '&g=' + rgb.g + '&b=' + rgb.b;
+    let response = await fetching('color.html' + params);
   }
 
 }

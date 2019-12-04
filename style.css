@@ -50,6 +50,7 @@ body {
   border: none;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
+
 #refresh {
   color: white !important;
   font-size: 40px;
@@ -77,8 +78,9 @@ button {
   color: white !important;
 
 }
+
 .mdl-layout__header-row {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .error-overlay {
@@ -97,6 +99,34 @@ button {
 body.error header {
   background: rgb(244, 67, 54) !important;
 }
+
 body.error .error-overlay {
   display: block;
+}
+
+.mdl-spinner--white .mdl-spinner__layer-1,
+.mdl-spinner--white .mdl-spinner__layer-2,
+.mdl-spinner--white .mdl-spinner__layer-3,
+.mdl-spinner--white .mdl-spinner__layer-4 {
+  border-color: white !important;
+}
+
+.mdl-spinner.mdl-spinner--white {
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 10px);
+}
+#head-right {
+  position: relative;
+}
+#head-right .mdl-spinner {
+  visibility: hidden;
+}
+#head-right.load .mdl-spinner {
+  visibility: visible;
+}
+#head-right.load #refresh {
+  visibility: hidden;
 }
