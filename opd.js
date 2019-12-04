@@ -1,4 +1,4 @@
-const HOST = 'http://127.0.0.1:18147/';
+const HOST = 'http://opd/';
 
 let defaultData = {
   active: 'neutral',
@@ -33,24 +33,40 @@ export function opd() {
   document.getElementById('refresh').addEventListener('click', unload);
 
   unload();
+
+}
+
+const fetching = async(url) => {
+  try {
+    let response = await fetch(HOST + url, {cache: 'no-cache'});
+    return true;
+  } catch(err) {
+    alert("can't reach " + url);
+    return false;
+  }
 }
 
 const unload = async () => {
 
   let params = '';
-  for (let key in localStorage) {
+  for (let key in defaultData) {
     params += key + '=' + localStorage[key] + '&';
   }
-  let response = await fetch(HOST + 'unload.html?' + params);
-  if (response.ok) {
-    unsetError();
-  } else setError();
+  try {
+    let response = await fetch(HOST + 'unload.html?' + params, {cache: 'no-cache'});
+    if (response.ok) {
+      unsetError();
+    }
+  } catch(error) {
+    setError();
+  }
+
 
 }
 
 const getData = async () => {
 
-  let response = await fetch(HOST + 'update.json');
+  let response = await fetch(HOST + 'update.json', {cache: 'no-cache'});
 
   if (response.ok) {
     let json = await response.json();
@@ -105,10 +121,8 @@ class Btn {
   }
 
   async send() {
-    let response = await fetch(HOST + this.id + '.html');
-    if (response.ok) {
-      this.set();
-    } else setError();
+    let response = await fetching(this.id + '.html');
+    if(response) this.set();
   }
 
 }
@@ -129,8 +143,7 @@ class Color {
       localStorage[key] = rgb[key];
       request += key + '=' + rgb[key] + '&';
     }
-    let response = await fetch(HOST + 'color.html?r=' + rgb.r + '&g=' + rgb.g + '&b=' + rgb.b);
-    if (!response.ok) setError();
+    let response = await fetching('color.html?r=' + rgb.r + '&g=' + rgb.g + '&b=' + rgb.b);
   }
 
 }
@@ -150,11 +163,11 @@ class Speed {
       return;
     }
 
-    let response = await fetch('http://opd?v=' + newSpeed, {mode: 'no-cors'});
-//    if (response.ok) {
+    let response = await fetching('speed.php?v=' + newSpeed);
+    if (response) {
       localStorage.speed = newSpeed;
       SpeedValue.innerHTML = newSpeed;
-//    } else setError();
+    }
 
   }
 }

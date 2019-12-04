@@ -1,5 +1,7 @@
 import {opd} from './opd.js';
-document.addEventListener('DOMContentLoaded', opd);
+//document.addEventListener('DOMContentLoaded', opd);
+opd();
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
