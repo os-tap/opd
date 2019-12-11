@@ -6,7 +6,7 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "https://webostap.github.io/opd/icon.png",
       "type": "image/png",
       "sizes": "192x192"
     }
