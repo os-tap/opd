@@ -40,7 +40,7 @@ export function opd() {
 const fetching = async(url) => {
   try {
     HeadRight.classList.add('load');
-    let response = await fetch(HOST + url, {cache: 'no-cache'});
+    let response = await fetch(url, {cache: 'no-cache'});
     HeadRight.classList.remove('load');
     return true;
   } catch(err) {
@@ -58,14 +58,14 @@ const unload = async () => {
   }
 
   HeadRight.classList.add('load');
-  let response = await fetching('unload.html' + params);
+  let response = await fetching('/unload' + params);
   response ? unsetError() : setError();
 
 }
 
 const getData = async () => {
 
-  let response = await fetch(HOST + 'update.json', {cache: 'no-cache'});
+  let response = await fetch('/update.json', {cache: 'no-cache'});
 
   if (response.ok) {
     let json = await response.json();
@@ -121,7 +121,7 @@ class Btn {
   }
 
   async send() {
-    let response = await fetching(this.id + '.html');
+    let response = await fetching('/'+this.id);
     if(response) this.set();
   }
 
@@ -144,7 +144,7 @@ class Color {
       request += key + '=' + rgb[key] + '&';
     }
     let params = '?r=' + rgb.r + '&g=' + rgb.g + '&b=' + rgb.b;
-    let response = await fetching('color.html' + params);
+    let response = await fetching('/color' + params);
   }
 
 }
@@ -164,7 +164,7 @@ class Speed {
       return;
     }
 
-    let response = await fetching('speed.php?v=' + newSpeed);
+    let response = await fetching('/speed?v=' + newSpeed);
     if (response) {
       localStorage.speed = newSpeed;
       SpeedValue.innerHTML = newSpeed;
