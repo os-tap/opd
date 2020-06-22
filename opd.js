@@ -36,7 +36,7 @@ export function opd() {
 }
 
 const fetching = async(url) => {
-  url = arduino_url + url;
+  url = HOSTNAME + url;
   try {
     HeadRight.classList.add('load');
     let response = await fetch(url, {cache: 'no-cache'});
