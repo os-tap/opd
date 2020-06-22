@@ -11,7 +11,7 @@ for (let key in defaultData) {
   }
 }
 
-const HOSTNAME = "http://esp8266";
+const HOSTNAME = "http://192.168.1.100";
 const SpeedStep = 20;
 let SpeedValue, HeadRight;
 
