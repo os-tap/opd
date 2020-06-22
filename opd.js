@@ -36,6 +36,7 @@ export function opd() {
 }
 
 const fetching = async(url) => {
+  url = "http://192.168.137.4/" + url;
   try {
     HeadRight.classList.add('load');
     let response = await fetch(url, {cache: 'no-cache'});
