@@ -31,7 +31,7 @@ export function opd() {
 
   document.getElementById('refresh').addEventListener('click', unload);
 
-//  unload();
+ unload();
 
 }
 
