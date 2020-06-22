@@ -15,9 +15,12 @@ for (let key in defaultData) {
 const SpeedStep = 20;
 let SpeedValue, HeadRight;
 
+let arduino_url;
 
 
-export function opd() {
+
+export function opd(_arduino_url) {
+  arduino_url = "http://" + _arduino_url;
   HeadRight = document.querySelector('#head-right');
   SpeedValue = document.querySelector('#speed');
   SpeedValue.innerHTML = localStorage.speed;
@@ -36,7 +39,7 @@ export function opd() {
 }
 
 const fetching = async(url) => {
-  url = "http://192.168.43.162" + url;
+  url = arduino_url + url;
   try {
     HeadRight.classList.add('load');
     let response = await fetch(url, {cache: 'no-cache'});
