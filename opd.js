@@ -11,16 +11,13 @@ for (let key in defaultData) {
   }
 }
 
-
+const HOSTNAME = "http://esp8266";
 const SpeedStep = 20;
 let SpeedValue, HeadRight;
 
-let arduino_url;
 
 
-
-export function opd(_arduino_url) {
-  arduino_url = "http://" + _arduino_url;
+export function opd() {
   HeadRight = document.querySelector('#head-right');
   SpeedValue = document.querySelector('#speed');
   SpeedValue.innerHTML = localStorage.speed;
