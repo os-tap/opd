@@ -1,2 +1,2 @@
 # opd
-<a href="https://opd.os-tap.ru/">https://opd.os-tap.ru/</a>
+<a href="https://webostap.github.io/opd/">https://webostap.github.io/opd/</a>
